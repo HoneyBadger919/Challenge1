@@ -12,7 +12,7 @@ First, let's start with some calculations on a list of prices for 5 loans.
     3. Using the sum of all loans and the total number of loans, calculate the average loan price.
     4. Print all calculations with descriptive messages.
 """
-print('PART 1')
+print('PART 1\nAutomate the Calculations\n')
 loan_costs = [500, 600, 200, 1000, 450]
 
 # How many loans are in the list?
@@ -59,7 +59,7 @@ Using more detailed data on one of these loans, follow these steps to calculate 
     @NOTE:
     If Present Value represents the loan's fair value (given the required minimum return of 20%), does it make sense to buy the loan at its current cost?
 """
-print('PART 2')
+print('PART 2\nAnalyze Loan Data\n')
 # Given the following loan data, you will need to calculate the present value for the loan
 loan = {
     "loan_price": 500,
@@ -107,7 +107,7 @@ Perform financial calculations using functions.
 2. Use the function to calculate the present value of the new loan given below.
     a. Use an `annual_discount_rate` of 0.2 for this new loan calculation.
 """
-print('PART 3')
+print('PART 3\nPerform Financial Calculations\n')
 
 # Given the following loan data, you will need to calculate the present value for the loan
 new_loan = {
@@ -133,7 +133,11 @@ annual_discount_rate = 0.2
 print(f'The annual discount rate is: {annual_discount_rate*100}%')
 present_value = calculate_present_value(new_loan.get('future_value'), new_loan.get('remaining_months'), annual_discount_rate)
 print(f"The present value of the loan is: {present_value}")
-
+if present_value >= new_loan.get('loan_price'):
+    saved = (present_value - new_loan['loan_price'])/present_value*100
+    print(f"The loan is worth buying:\nCurrent Price ${new_loan['loan_price']} is {round(saved,2)}% cheaper than its Fair Value ${round(present_value,2)}")
+else:
+    print('The cost of the loan exceed its fair price')
 print('-------------------------------------------------------------------------------')
 
 
@@ -147,7 +151,7 @@ In this section, you will use a loop to iterate through a series of loans and se
     b. If the loan_price is less than or equal to 500 then append that loan to the `inexpensive_loans` list.
 3. Print the list of inexpensive_loans.
 """
-print('PART 4')
+print('PART 4\nConditionally Filter Lists of Loans\n')
 loans = [
     {
         "loan_price": 700,
@@ -203,7 +207,7 @@ Output this list of inexpensive loans to a csv file
     https://docs.python.org/3/library/csv.html#writer-objects
 
 """
-print('PART 5')
+print('PART 5\nSave the Results\n')
 # Set the output header
 header = ["loan_price", "remaining_months", "repayment_interval", "future_value"]
 
